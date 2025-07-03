@@ -1,22 +1,25 @@
-#body {
-    background-color: rgb(231, 68, 68);
-    display: flex;
+#title {
+    font-size: larger;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    font-family:"Calibri", serif;
+    display: flex;
 }
 
 #grid {
-    border-radius: 300px;
+    border-radius: 30px;
     display: grid;
-    grid-template-columns: repeat(20, 30px);
-    grid-template-rows: repeat(17,30px);
-    margin: 5px;
+    grid-template-columns: repeat(30, 30px);
+    grid-template-rows: repeat(30,30px);
+    
+}
+
+#grid div {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
 }
 
 #border {
     border: #490808 solid 5px;
-    border-radius: 15px;
+    border-radius: 25px;
 }
