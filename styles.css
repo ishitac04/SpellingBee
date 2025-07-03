@@ -6,11 +6,12 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
+    font-size: x-large;
   }
   
 
 #title {
-    font-size: larger;
+    font-size: medium;
     text-align: center;
     align-items: center;
     display: flex;
@@ -30,4 +31,5 @@ body {
     height: 30px;
     border: 1px solid #000000;
     box-sizing: border-box;
+    margin: auto;
 }

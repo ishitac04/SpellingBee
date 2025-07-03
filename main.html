@@ -20,11 +20,15 @@
                 const square = document.createElement('div');
                 board.appendChild(square);
             }
-
-            grid[1].textContent = "2"
-
-            const letters=["A","B","C","D","E","F","G","H","I","J","K",]
-
+            const boxes = document.querySelectorAll('#grid div');
+            const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+  "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+            for (let i=0; i<11; i++) {
+                let letterindex=Math.floor(Math.random() * 26 )
+                let currentletter=letters[letterindex]
+                let letterposition=Math.floor(Math.random() * 450)
+                boxes[letterposition].textContent = currentletter
+            }
         </script>
     </body>
 </html>

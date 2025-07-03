@@ -1,6 +1,13 @@
 safecode
 
 git add .
-git commit -m "commit"
+git commit -m "added random letter generation"
+git branch -M main
+git push -u origin main
+
+git init                   
+git remote add origin https://github.com/ishitac04/snakevsblock.git
+git add .
+git commit -m "finalised the grid and added a title/styling"
 git branch -M main
 git push -u origin main
