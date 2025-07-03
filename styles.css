@@ -1,14 +1,27 @@
+body {
+    background-color: #d0e489;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+
 #title {
     font-size: larger;
+    text-align: center;
     align-items: center;
     display: flex;
 }
 
 #grid {
-    border-radius: 30px;
+    border-radius: 50px;
     display: grid;
-    grid-template-columns: repeat(30, 30px);
-    grid-template-rows: repeat(30,30px);
+    grid-template-columns: repeat(25, 30px);
+    grid-template-rows: repeat(18,30px);
+    
     
 }
 
@@ -17,9 +30,4 @@
     height: 30px;
     border: 1px solid #000000;
     box-sizing: border-box;
-}
-
-#border {
-    border: #490808 solid 5px;
-    border-radius: 25px;
 }
