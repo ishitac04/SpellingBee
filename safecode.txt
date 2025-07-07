@@ -1,7 +1,7 @@
 safecode
 
 git add .
-git commit -m "added random letter generation"
+git commit -m "added a bee and tested different patterns"
 git branch -M main
 git push -u origin main
 

@@ -32,4 +32,26 @@ body {
     border: 1px solid #000000;
     box-sizing: border-box;
     margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+}
+  
+.snake-horizontal {
+    background-image: url('horizontal.png');
+}
+
+.snake-vertical {
+    background-image: url('vertical.png');
+}
+
+.snake-vertical-head {
+    background-image: url('vertical1.png');
+}
+
+.snake-horizontal-head {
+    background-image: url('horizontal1.png');
 }

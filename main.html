@@ -29,6 +29,15 @@
                 let letterposition=Math.floor(Math.random() * 450)
                 boxes[letterposition].textContent = currentletter
             }
+
+            const beepositions=[186,211,236]
+            beepositions.forEach((pos,index)=> {
+                if (index === 0) {
+                    boxes[pos].classList.add('snake-vertical-head');
+                } else {
+                    boxes[pos].classList.add('snake-vertical');
+                }
+            });
         </script>
     </body>
 </html>
