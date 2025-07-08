@@ -1,7 +1,7 @@
 safecode
 
 git add .
-git commit -m "added a bee and tested different patterns"
+git commit -m "added movement for the bee with the pattern changing direction when needed"
 git branch -M main
 git push -u origin main
 

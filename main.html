@@ -31,13 +31,58 @@
             }
 
             const beepositions=[186,211,236]
-            beepositions.forEach((pos,index)=> {
-                if (index === 0) {
-                    boxes[pos].classList.add('snake-vertical-head');
-                } else {
-                    boxes[pos].classList.add('snake-vertical');
+
+            let currentDirection = "up";
+                        document.addEventListener('keydown', (event) => {
+            switch (event.key) {
+                case 'ArrowUp':
+                currentDirection = 'up';
+                break;
+                case 'ArrowDown':
+                currentDirection = 'down';
+                break;
+                case 'ArrowLeft':
+                currentDirection = 'left';
+                break;
+                case 'ArrowRight':
+                currentDirection = 'right';
+                break;
                 }
             });
+
+            setInterval(moveSnake, 300);
+
+            function moveSnake() {
+                const tail = beepositions.pop();
+                console.log(tail)
+                boxes[tail].className = '';
+
+                let newHead = beepositions[0];
+                if (currentDirection === 'up') newHead -= 25;
+                if (currentDirection === 'down') newHead += 25;
+                if (currentDirection === 'left') newHead -= 1;
+                if (currentDirection === 'right') newHead += 1;
+                beepositions.unshift(newHead);
+
+
+                beepositions.forEach((pos, index) => {
+                    boxes[pos].className = ''; // clear any old classes first
+
+                if (index === 0) {
+                    if (currentDirection === "left" || currentDirection === "right") {
+                        boxes[pos].classList.add('snake-horizontal-head');
+                    } else {
+                        boxes[pos].classList.add('snake-vertical-head');
+                    }
+                } else {
+                    if (currentDirection === "left" || currentDirection === "right") {
+                        boxes[pos].classList.add('snake-horizontal');
+                    } else {
+                        boxes[pos].classList.add('snake-vertical');
+                    }
+                }
+                });
+            }
         </script>
     </body>
 </html>
