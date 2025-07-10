@@ -12,25 +12,31 @@
             <div id="grid"></div>
         </div>
         <script lang="JavScript">
+            document.write("")
+            document.write("FIND THE FOLLOWING WORD: ")
             const words = ["ABYSS","BROKE","CRAMP","DANCE","EMPTY","FRANK","GATES","HOLDS","IGLOO","JUICE","KEEPS","LAKES","MOUSE","NIGHT","OPENS","POINT","QUEEN","ROVER","STAMP","TUNES","ULTRA","VOICE","WOKEN"]
-            let wordindex = Math.floor(Math.random()*24)
-            let neededletters = words[wordindex].split('');
+            let wordindex = Math.floor(Math.random()*23)
+            let neededletters = words[wordindex].split('')
+            document.write(words[wordindex])
             let i=0
             while (i<450) {
                 i=i+1
-                const board = document.getElementById('grid');
-                const square = document.createElement('div');
-                board.appendChild(square);
+                const board = document.getElementById('grid')
+                const square = document.createElement('div')
+                board.appendChild(square)
             }
-            const boxes = document.querySelectorAll('#grid div');
-            for 
+            const boxes = document.querySelectorAll('#grid div')
 
             const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-  "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
+        boxes.forEach(box => {
+            box.textContent = "";
+        });
 
             const beepositions=[186,211,236]
 
-            let currentDirection = "up";
+            let currentDirection = "up"
                         document.addEventListener('keydown', (event) => {
             switch (event.key) {
                 case 'ArrowUp':
@@ -48,18 +54,50 @@
                 }
             });
 
-            setInterval(moveSnake, 300);
+            for (let i=0; i<5; i++) {
+                let letterindex=Math.floor(Math.random() * 26 )
+                let currentletter=letters[letterindex]
+                let letterposition=Math.floor(Math.random() * 450)
+                boxes[letterposition].textContent = currentletter
+                boxes[letterposition].classList.add('text');
+            }
+            for (let i=0; i<5; i++) {
+                let currentletter=neededletters[i]
+                let letterposition=Math.floor(Math.random() * 450)
+                boxes[letterposition].textContent = currentletter
+                boxes[letterposition].classList.add('text');
+                console.log(currentletter)
+            }
+
+            setInterval(moveSnake, 150);
+            let count=0
+            let wordcount=0
 
             function moveSnake() {
                 let currentword = ""
                 const tail = beepositions.pop();
-                console.log(tail)
+                let pickedletter = boxes[tail].textContent
+                currentword=currentword+pickedletter
+                console.log(currentword)
                 boxes[tail].className = '';
-                if (boxes[tail] == " ") {
-                    console.log("crossed letter")
-                    console.log(currentword)
-                }
                 boxes[tail].textContent = "";
+                if (letters.includes(pickedletter) ) {
+                    console.log("picked up a real letter")
+                    if (count<4) {
+                        if (neededletters[count]==pickedletter) {
+                            console.log("picked the right letter")
+                        }
+                        else {
+                            alert("GAME OVER")
+                            setInterval(10000)
+                            location.reload()
+                        }
+                    } else {
+                        wordcount=wordcount+1
+                        console.log("got a full word!")
+                    }
+                    count=count+1
+                }
             
                 let newHead = beepositions[0];
                 if (currentDirection === 'up') newHead -= 25;
@@ -68,10 +106,8 @@
                 if (currentDirection === 'right') newHead += 1;
                 beepositions.unshift(newHead);
 
-                column=newHead%25
-
                 beepositions.forEach((pos, index) => {
-                    boxes[pos].className = ''; // clear any old classes first
+                    boxes[pos].className = '';
 
                 if (index === 0) {
                     if (currentDirection === "left" || currentDirection === "right") {
@@ -97,20 +133,6 @@
             
             }
 
-            for (let i=0; i<5; i++) {
-                let letterindex=Math.floor(Math.random() * 26 )
-                let currentletter=letters[letterindex]
-                let letterposition=Math.floor(Math.random() * 450)
-                boxes[letterposition].textContent = currentletter
-                boxes[letterposition].classList.add('text');
-            }
-            for (let i=0; i<5; i++) {
-                let currentletter=neededletters[i]
-                let letterposition=Math.floor(Math.random() * 450)
-                boxes[letterposition].textContent = currentletter
-                boxes[letterposition].classList.add('text');
-                console.log(currentletter)
-            }
 
         </script>
     </body>
