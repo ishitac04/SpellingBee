@@ -1,7 +1,7 @@
 safecode
 
 git add .
-git commit -m "matches collected and displays the correct message"
+git commit -m "tidied the code to store everything in functions and added more words after each one is completed"
 git branch -M main
 git push -u origin main
 
@@ -20,3 +20,4 @@ TO DO:
 - make snake faster as progresses
 - sound effects?
 - highscore?
+- fix random glitches
