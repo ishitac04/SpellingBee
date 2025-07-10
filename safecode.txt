@@ -1,7 +1,7 @@
 safecode
 
 git add .
-git commit -m "added movement for the bee with the pattern changing direction when needed"
+git commit -m "added word generation and letter collection"
 git branch -M main
 git push -u origin main
 
@@ -11,3 +11,13 @@ git add .
 git commit -m "added movement for the bee with the pattern changing direction when needed"
 git branch -M main
 git push -u origin main
+
+
+TO DO:
+- generate word
+- add letters to grid
+- collect letters
+- write word
+- match word
+- count no. of words
+- add time frame

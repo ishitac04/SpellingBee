@@ -8,7 +8,6 @@ body {
     margin: 0;
     font-size: x-large;
   }
-  
 
 #title {
     font-size: larger;
@@ -18,12 +17,11 @@ body {
 }
 
 #grid {
-    border-radius: 50px;
+    border-radius: 20px;
+    border: 1px solid #000000;
     display: grid;
     grid-template-columns: repeat(25, 30px);
     grid-template-rows: repeat(18,30px);
-    
-    
 }
 
 #grid div {
@@ -41,17 +39,30 @@ body {
 }
   
 .snake-horizontal {
+    border-radius: 5px;
     background-image: url('horizontal.png');
 }
 
 .snake-vertical {
+    border-radius: 5px;
     background-image: url('vertical.png');
 }
 
 .snake-vertical-head {
+    border-radius: 5px;
     background-image: url('vertical1.png');
 }
 
 .snake-horizontal-head {
+    border-radius: 5px;
     background-image: url('horizontal1.png');
 }
+
+.text {
+    color: darkblue;
+    font-weight: bold;
+    font-size: 22px;
+    background-color: #ffffff;
+    border-radius: 5px;
+  }
+  

@@ -12,7 +12,9 @@
             <div id="grid"></div>
         </div>
         <script lang="JavScript">
-            
+            const words = ["ABYSS","BROKE","CRAMP","DANCE","EMPTY","FRANK","GATES","HOLDS","IGLOO","JUICE","KEEPS","LAKES","MOUSE","NIGHT","OPENS","POINT","QUEEN","ROVER","STAMP","TUNES","ULTRA","VOICE","WOKEN"]
+            let wordindex = Math.floor(Math.random()*24)
+            let neededletters = words[wordindex].split('');
             let i=0
             while (i<450) {
                 i=i+1
@@ -21,14 +23,10 @@
                 board.appendChild(square);
             }
             const boxes = document.querySelectorAll('#grid div');
+            for 
+
             const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
   "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-            for (let i=0; i<11; i++) {
-                let letterindex=Math.floor(Math.random() * 26 )
-                let currentletter=letters[letterindex]
-                let letterposition=Math.floor(Math.random() * 450)
-                boxes[letterposition].textContent = currentletter
-            }
 
             const beepositions=[186,211,236]
 
@@ -53,10 +51,16 @@
             setInterval(moveSnake, 300);
 
             function moveSnake() {
+                let currentword = ""
                 const tail = beepositions.pop();
                 console.log(tail)
                 boxes[tail].className = '';
-
+                if (boxes[tail] == " ") {
+                    console.log("crossed letter")
+                    console.log(currentword)
+                }
+                boxes[tail].textContent = "";
+            
                 let newHead = beepositions[0];
                 if (currentDirection === 'up') newHead -= 25;
                 if (currentDirection === 'down') newHead += 25;
@@ -64,6 +68,7 @@
                 if (currentDirection === 'right') newHead += 1;
                 beepositions.unshift(newHead);
 
+                column=newHead%25
 
                 beepositions.forEach((pos, index) => {
                     boxes[pos].className = ''; // clear any old classes first
@@ -82,7 +87,31 @@
                     }
                 }
                 });
+
+                if (boxes[tail].classList.contains('text')) {
+                    let collectedletter = boxes[tail].textContent
+                    console.log(collectedletter)
+                    console.log("Hello")
+                }
+
+            
             }
+
+            for (let i=0; i<5; i++) {
+                let letterindex=Math.floor(Math.random() * 26 )
+                let currentletter=letters[letterindex]
+                let letterposition=Math.floor(Math.random() * 450)
+                boxes[letterposition].textContent = currentletter
+                boxes[letterposition].classList.add('text');
+            }
+            for (let i=0; i<5; i++) {
+                let currentletter=neededletters[i]
+                let letterposition=Math.floor(Math.random() * 450)
+                boxes[letterposition].textContent = currentletter
+                boxes[letterposition].classList.add('text');
+                console.log(currentletter)
+            }
+
         </script>
     </body>
 </html>
