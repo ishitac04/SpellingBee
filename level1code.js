@@ -13,7 +13,7 @@
             let wordcount = 0;
             let word;
             let intervalId;
-            let timeLeft=30;
+            let timeLeft=60;
             let timerId;
             let movementspeed = 150;
 

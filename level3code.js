@@ -13,7 +13,7 @@ let count = 0;
 let wordcount = 0;
 let word;
 let intervalId;
-let timeLeft=30;
+let timeLeft=60;
 let timerId;
 let movementspeed = 150;
 
@@ -196,7 +196,7 @@ function startTimer() {
 function showEndOptions() {
     const retry = confirm("Time's up! Retry level or return to homepage? Press OK to return to homepage.");
     if (retry) {
-        window.location.href = "welcome page.html";
+        window.location.href = "index.html";
     } else {
         location.reload();
     }
