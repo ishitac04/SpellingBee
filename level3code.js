@@ -101,10 +101,7 @@ function moveSnake() {
     if (currentDirection === 'right') newHead += 1;
 
     if (
-        newHead < 0 ||
-        newHead >= 450 ||
-        (currentDirection === 'left' && newHead % 25 === 24) ||
-        (currentDirection === 'right' && newHead % 25 === 0)
+        newHead < 0 || newHead >= 450 || (currentDirection === 'left' && newHead % 25 === 24) || (currentDirection === 'right' && newHead % 25 === 0)
     ) {
         alert("You hit a wall! Game over! You collected "+wordcount+" word(s)! Click OK to retry.");
         wrongsound.play();
