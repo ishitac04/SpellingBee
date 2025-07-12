@@ -1,4 +1,8 @@
             const correctsound = document.getElementById("correctsoundeffect");
+            const wrongsound = document.getElementById("wrongsoundeffect");
+            const timersound = document.getElementById("timersound");
+            const sparklesound = document.getElementById("sparklesound");
+            
             const words = ["ABYSS","BROKE","CRAMP","DANCE","EMPTY","FRANK","GATES","HOLDS","IGLOO","JUICE","KEEPS","LAKES","MOUSE","NIGHT","OPENS","POINT","QUEEN","ROVER","STAMP","TUNES","ULTRA","VOICE","WOKEN"]
             const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
             const beepositions=[186,211,236]
@@ -9,7 +13,7 @@
             let wordcount = 0;
             let word;
             let intervalId;
-            let timeLeft=60;
+            let timeLeft=30;
             let timerId;
             let movementspeed = 150;
 
@@ -77,12 +81,14 @@
                         correctsound.play();
                         count++;
                         if (count === neededletters.length) {
+                            sparklesound.play();
                             wordcount=wordcount+1;
                             count = 0;
                             setWord();
                         }
                     } else {
-                        alert("Wrong letter! Game Over! You collected "+wordcount+" word(s)!");
+                        wrongsound.play();
+                        alert("Wrong letter! Game Over! You collected "+wordcount+" word(s)! Click OK to retry.");
                         clearInterval(intervalId);
                         location.reload();
                     }                    
@@ -100,13 +106,15 @@
                     (currentDirection === 'left' && newHead % 25 === 24) ||
                     (currentDirection === 'right' && newHead % 25 === 0)
                 ) {
-                    alert("You hit a wall! Game over! You collected "+wordcount+" word(s)!");
+                    alert("You hit a wall! Game over! You collected "+wordcount+" word(s)! Click OK to retry.");
+                    wrongsound.play();
                     location.reload()
                     return;
                 }
 
                 if (beepositions.includes(newHead)) {
-                    alert("You ate yourself! Game over! You collected "+wordcount+" word(s)!");
+                    alert("You ate yourself! Game over! You collected "+wordcount+" word(s)! Click OK to retry.");
+                    wrongsound.play();
                     location.reload()
                     return;
                 }                
@@ -177,6 +185,7 @@
                     document.getElementById('timer').textContent = `Time left: ${timeLeft}`;
             
                     if (timeLeft <= 0) {
+                        timersound.play();
                         clearInterval(timerId);
                         clearInterval(intervalId);
                         showEndOptions();
@@ -185,11 +194,11 @@
             }
 
             function showEndOptions() {
-                const retry = confirm("Time's up! Retry level or move on to level 2? ");
+                const retry = confirm("Time's up! Retry level or move on to level 2? Press OK to move on.");
                 if (retry) {
-                    location.reload();
-                } else {
                     window.location.href = "level2.html";
+                } else {
+                    location.reload();
                 }
             }            
 
