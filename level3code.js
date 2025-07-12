@@ -5,7 +5,7 @@ const sparklesound = document.getElementById("sparklesound");
 
 const words = ["ALLOWED", "BALLOON", "CANYONS", "DRAWING", "EVENING", "FARMERS","GUITARS", "HARVEST", "IMAGINE", "JOURNAL", "KITCHEN", "LEMONED", "MOUNTAIN", "NATURAL", "OFFLINE", "PACKING", "QUIETLY", "READING", "STATION", "TURNING", "UNCOVER", "VINTAGE", "WAITING", "YAWNING"];
   const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-const beepositions=[186,211,236]
+const beepositions=[186,211,236];
 
 let boxes;
 let neededletters;
@@ -17,14 +17,14 @@ let timeLeft=30;
 let timerId;
 let movementspeed = 150;
 
-const currentWordEl = document.getElementById('currentWord')
+const currentWordEl = document.getElementById('currentWord');
 
 
 function generateWord() {
-    let wordindex = Math.floor(Math.random()*23)
+    let wordindex = Math.floor(Math.random()*23);
     word=words[wordindex];
-    neededletters = words[wordindex].split('')
-    document.getElementById('currentWord').textContent += words[wordindex]
+    neededletters = words[wordindex].split('');
+    document.getElementById('currentWord').textContent += words[wordindex];
 }
 
 function generateGrid() {
